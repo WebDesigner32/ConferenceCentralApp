@@ -858,5 +858,4 @@ class ConferenceApi(remote.Service):
             items=[self._copyConferenceToForm(conf, "") for conf in q]
         )
 
-
 api = endpoints.api_server([ConferenceApi]) # register API
