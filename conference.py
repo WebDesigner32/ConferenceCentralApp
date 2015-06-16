@@ -308,7 +308,7 @@ class ConferenceApi(remote.Service):
 
     @endpoints.method(SESS_WISHL_POST_REQUEST, BooleanMessage,
                       path='wishlist',
-                      http_method='POST', name='putSessionOnWishlist')
+                      http_method='POST', name='addSessionToWishlist')
 
     @ndb.transactional
     def putSessionOnWishlist(self, request):
@@ -333,8 +333,8 @@ class ConferenceApi(remote.Service):
             return BooleanMessage(data=onWishlist)
     @endpoints.method(message_types.VoidMessage, SessionForms,
                       path='wishlist',
-                      http_method='GET', name='getSessionsOnWishlist')
-    def getSessionsOnWishlist(self, request):
+                      http_method='GET', name='getSessionsInWishlist')
+    def getSessionsInWishlist(self, request):
         """Get list of sessions that user has added to h/her wishlist."""
         prof = self._getProfileFromUser()
 
