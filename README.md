@@ -34,8 +34,8 @@ you can use the application by visiting: https://APPIDGOESHERE.appspot.com.
 1. To test endpoint methods I provided, visit:
 [https://conference-central-966.appspot.com/_ah/api/explorer][7].
 
-2. To obtain a valid websafeConferenceKey in the API Explorer from the link
-provided in the first step, visit a conference details page and copy it from the URL. Similarly, to obtain a valid sessionConferenceKey, visit the response from the getConferenceSessions method and copy the websafeKey.
+2. To obtain a valid websafeConferenceKey for the API Explorer from the link
+provided in the first step, visit Show Conferences and click Details to access a conference details page, and then copy the websafeConferenceKey from the URL. Similarly, to obtain a valid sessionConferenceKey, visit the response from the getConferenceSessions method and copy the websafeKey.
 
 ##**Task 1: Add Sessions to a Conference**##
 
