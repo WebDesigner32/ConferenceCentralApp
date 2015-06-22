@@ -587,9 +587,6 @@ class ConferenceApi(remote.Service):
         # get all keys and use get_multi for speed
         organisers = [(ndb.Key(Profile, conf.organizerUserId)) for conf in conferences]
         profiles = ndb.get_multi(organisers)
-
-        # print "\n --------- profiles: ", profiles
-
         # put display names in a dict for easier fetching
         names = {}
         for profile in profiles:
@@ -664,10 +661,6 @@ class ConferenceApi(remote.Service):
                     val = getattr(save_request, field)
                     if val:
                         setattr(prof, field, str(val))
-                        # if field == 'teeShirtSize':
-                        #    setattr(prof, field, str(val).upper())
-                        # else:
-                        #    setattr(prof, field, val)
             prof.put()
 
         # return ProfileForm
