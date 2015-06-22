@@ -310,8 +310,8 @@ class ConferenceApi(remote.Service):
         )
 
     @endpoints.method(SESS_WISHL_POST_REQUEST, BooleanMessage,
-                      path='wishlist',
-                      http_method='POST', name='addSessionToWishlist')
+                      path='wishlist', http_method='POST',
+                      name='addSessionToWishlist')
     @ndb.transactional
     def addSessionToWishlist(self, request):
         """Put an existing session on the user's wishlist."""
