@@ -71,8 +71,7 @@ emphasized and implementation of endpoint methods and classes are heavily used.
    can continue by pasting it in the `websafeSessionKey` field asked for in the
    Google APIs Explorer.
 
-   *When testing the additions I made to the basic code, leave the `fields`
-   fields blank.
+   *When testing in the Google APIs Explorer, leave the `fields` fields blank.
 
 ##**Task 1: Add Sessions to a Conference**##
 
