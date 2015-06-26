@@ -49,8 +49,8 @@ emphasized and implementation of endpoint methods and classes are heavily used.
    click `conference API`. From there you will see the endpoint methods you can
    test. Before you can test the endpoint methods, make sure that
    `Authorize requests using OAuth 2.0:` in the top-right is toggled to `ON`.
-   Do this by selecting `https://www.googleapis.com/auth/userinfo.email` in the
-   window that pops up, and then click `Authorize`.
+   Then select `https://www.googleapis.com/auth/userinfo.email` in the window
+   that pops up, and then click `Authorize`.
 
    *If you run into any issues testing the application, then consider either
    using or not using Incognito mode for the Chrome Browser. Another problem
