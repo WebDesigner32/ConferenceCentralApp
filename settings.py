@@ -8,6 +8,7 @@ $Id$
 
 created/forked from conference.py by wesc on 2014 may 24
 
+and extended by Landon Bennett
 """
 
 # Replace the following lines with client IDs obtained from the APIs

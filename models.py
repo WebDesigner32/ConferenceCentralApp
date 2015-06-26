@@ -1,16 +1,12 @@
 #!/usr/bin/env python
 
 """models.py
-
 Udacity conference server-side Python App Engine data & ProtoRPC models
-
 $Id: models.py,v 1.1 2014/05/24 22:01:10 wesc Exp $
-
 created/forked from conferences.py by wesc on 2014 may 24
-
 """
 
-__author__ = 'wesc+api@google.com (Wesley Chun)'
+__authors__ = 'wesc+api@google.com (Wesley Chun) and Landon Bennett'
 
 import httplib
 import endpoints
@@ -66,9 +62,9 @@ class Conference(ndb.Model):
     city            = ndb.StringProperty()
     startDate       = ndb.DateProperty()
     month           = ndb.IntegerProperty()
+    endDate         = ndb.DateProperty()
     maxAttendees    = ndb.IntegerProperty()
     seatsAvailable  = ndb.IntegerProperty()
-    endDate         = ndb.DateProperty()
 
 
 class ConferenceForm(messages.Message):
@@ -78,11 +74,11 @@ class ConferenceForm(messages.Message):
     organizerUserId = messages.StringField(3)
     topics          = messages.StringField(4, repeated=True)
     city            = messages.StringField(5)
-    startDate       = messages.StringField(6)  # DateTimeField()
+    startDate       = messages.StringField(6)
     month           = messages.IntegerField(7)
     maxAttendees    = messages.IntegerField(8)
     seatsAvailable  = messages.IntegerField(9)
-    endDate         = messages.StringField(10)  # DateTimeField()
+    endDate         = messages.StringField(10)
     websafeKey      = messages.StringField(11)
     organizerDisplayName = messages.StringField(12)
 
@@ -93,18 +89,23 @@ class ConferenceForms(messages.Message):
 
 
 class Speaker(ndb.Model):
+    """Speaker -- Speaker can present for multiple conferences."""
     name = ndb.StringProperty(required=True)
 
 
 class SpeakerForm(messages.Message):
+    """SpeakerForm -- messages for Speaker form"""
     name = messages.StringField(1, required=True)
 
 
 class Session(ndb.Model):
+    """Session -- Session object"""
     name = ndb.StringProperty(required=True)
     highlights = ndb.StringProperty(repeated=True)
+    # numerous speaker entities can exist
     speakers = ndb.KeyProperty(kind=Speaker, repeated=True)
     duration = ndb.TimeProperty()
+    # the msgprop module is used
     typeOfSession = ndb.StringProperty()
     date = ndb.DateProperty()
     startTime = ndb.TimeProperty()
@@ -112,6 +113,7 @@ class Session(ndb.Model):
 
 
 class SessionForm(messages.Message):
+    """SessionForm -- messages for Session form"""
     name = messages.StringField(1)
     highlights = messages.StringField(2, repeated=True)
     speakers = messages.StringField(3, repeated=True)
@@ -120,11 +122,13 @@ class SessionForm(messages.Message):
     date = messages.StringField(6)
     startTime = messages.StringField(7)
     location = messages.StringField(8)
+    # data for the parent and entity are in websafeKey
     websafeKey = messages.StringField(9)
     websafeConfKey = messages.StringField(10)
 
 
 class SessionForms(messages.Message):
+    """SessionForms -- messages for multiple Session forms"""
     items = messages.MessageField(SessionForm, 1, repeated=True)
 
 
@@ -148,6 +152,7 @@ class TeeShirtSize(messages.Enum):
 
 
 class TypeOfSession(messages.Enum):
+    """TypeOfSession -- type of session enumeration value"""
     NOT_SPECIFIED = 1
     Workshop = 2
     Lecture = 3
