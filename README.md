@@ -30,8 +30,8 @@ emphasized and implementation of endpoint methods and classes are heavily used.
 3. Set the Web client ID as the value for CLIENT_ID in `static/js/app.js`.
 5. In GoogleAppEngineLauncher, right click and then click `New`. Leave the
    `Application ID` blank and then specify the Application Directory. Next, you
-   can set a port. Once completed, continue by clicking Create.
-6. In GoogleAppEngineLauncher, click Run.
+   can set `Port`. Once completed, continue by clicking `Create`.
+6. In GoogleAppEngineLauncher, click `Run`.
 6. Check if the app is running by visiting [localhost:8080][6]. If you are
    using a port other than the default 8080, say 9080 for example, then you
    visit localhost:9080.
@@ -62,8 +62,8 @@ emphasized and implementation of endpoint methods and classes are heavily used.
    go to [https://conference-central-966.appspot.com][7] and then click
    `Show Conferences` and then click `Details` to access the details for a
    conference. Once that is completed, copy the `websafeConferenceKey` from the
-   URL and then paste it in the asked for field in the Google APIs Explorer to
-   continue.
+   end of the URL and then paste it in the asked for field in the Google APIs
+   Explorer to continue.
 
    Similarly, to obtain the `websafeSessionKey`, visit the response from the
    `getConferenceSessions` method in the Google APIs Explorer and then copy the
@@ -71,35 +71,35 @@ emphasized and implementation of endpoint methods and classes are heavily used.
    can continue by pasting it in the `websafeSessionKey` field asked for in the
    Google APIs Explorer.
 
-   *In testing the additions I made to the basic code, leave the `fields`
+   *When testing the additions I made to the basic code, leave the `fields`
    fields blank.
 
 ##**Task 1: Add Sessions to a Conference**##
 
 The kind Session is defined in models.py like so:
 
-class Session(ndb.Model):
-    name = ndb.StringProperty(required=True)
-    highlights = ndb.StringProperty(repeated=True)
-    speakers = ndb.KeyProperty(kind=Speaker, repeated=True)
-    duration = ndb.TimeProperty()
-    typeOfSession = ndb.StringProperty()
-    date = ndb.DateProperty()
-    startTime = ndb.TimeProperty()
-    location = ndb.StringProperty()
+**class Session(ndb.Model):**
+    **name = ndb.StringProperty(required=True)**
+    **highlights = ndb.StringProperty(repeated=True)**
+    **speakers = ndb.KeyProperty(kind=Speaker, repeated=True)**
+    **duration = ndb.TimeProperty()**
+    **typeOfSession = ndb.StringProperty()**
+    **date = ndb.DateProperty()**
+    **startTime = ndb.TimeProperty()**
+    **location = ndb.StringProperty()**
 
-As you can see, there can be multiple highlights and speakers in a session,
-and a session is created as a child of an existing conference.
+As you can see, there can be multiple highlights and speakers in a session.
+The session is created as a child of an existing conference.
 
 The SessionForm class allows for the creation of a session object. When a
-request is made for a current session, the message field websafeKey holds a
+request is made for a current session, the message field `websafeKey` holds a
 urlsafe string that can change back to the initial key which establishes the
 session as unique. Finally, the SessionsForms class yields multiple SessionForm
 objects.
 
 The Speaker class has a single property, the name property, for the speaker.
 The name for the speaker is used to identify the speaker uniquely and it is
-used as an input for a form. As for the required getSessionsBySpeaker method,
+used as an input for a form. As for the required `getSessionsBySpeaker` method,
 the class SpeakerForm is implemented to add a speaker for the method.
 
 Finally, the project uses the following as endpoints and private methods for
@@ -112,7 +112,8 @@ and `_getKeyForSpeaker`.
 
 Start with the `addSessionToWishlist` method. Here, you must provide the
 `websafeKey` in the `websafeSessionKey` field for the session you are
-interested in adding. To do that, see Step 3 from `Test Instructions`.
+interested in adding. To do that, see the last half of Step 3 from
+`Test Instructions`.
 
 Moving forward, you will want to retrieve sessions in your wishlist, and so you
 must go to the required method `getSessionsInWishlist` and then click
@@ -124,10 +125,10 @@ must go to the required method `getSessionsInWishlist` and then click
 
 Sometimes, users for many reasons want to have knowledge of the conferences
 that have minimum and maximum attendees. Therefore, I have implemented in
-`conference.py` two methods that query all conferences having min attendess <=5
-(getMinAttndsConfs) and max attendess >= 100 (getMaxAttndsConfs). Examples of
+`conference.py` two methods that query all conferences having min attendees <=5
+(getMinAttndsConfs) and max attendees >= 100 (getMaxAttndsConfs). Examples of
 conferences with minimum attendees are private board meetings for CEOs and
-examples of conferences with maximum attendees are popular sports gatherings.
+examples of conferences with maximum attendees are popular sporting events.
 
 ###**Solve the following query related problem**###
 
@@ -153,9 +154,9 @@ sessions of a conference are reviewed for any speaker that has greater than one
 session in that conference once `ReviewSpeakersForSessions` in `main.py` is
 executed. In the event a speaker does have greater than one session, then the
 speaker gets featured and a new Memcache entry is made or overwrites the
-previous entry giving a list of all featured speakers and their sessions for
+previous entry, giving a list of all featured speakers and their sessions for
 the conference. Note that `getFeaturedSpeaker` has a `websafeConferenceKey`
-field. Once the `websafeConferenceKey` is provided (see Step 3 in
+field. Once the `websafeConferenceKey` is provided (see first half of Step 3 in
 `Test Instructions` if unsure) then the method will return the featured
 speakers and their sessions as the Memcache entry.
 
