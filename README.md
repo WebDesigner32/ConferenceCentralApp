@@ -108,12 +108,16 @@ the Session and Speaker kinds: `getConferenceSessions`,
 `_copySessionToForm`, `_createSessionObject`, `_getConferenceSessions`,
 and `_getKeyForSpeaker`.
 
+*When testing the available methods via the Google APIs Explorer, provide
+information for all fields except for the `fields` fields and then click
+`Execute` for each method.
+
 ##**Task 2: Add Sessions to User Wishlist**##
 
 Start with the `addSessionToWishlist` method. Here, you must provide the
 `websafeKey` in the `websafeSessionKey` field for the session you are
 interested in adding. To do that, see the last half of Step 3 from
-`Test Instructions`.
+`Test Instructions`. Once provided, click `Execute`.
 
 Moving forward, you will want to retrieve sessions in your wishlist, and so you
 must go to the required method `getSessionsInWishlist` and then click
@@ -126,9 +130,11 @@ must go to the required method `getSessionsInWishlist` and then click
 Sometimes, users for many reasons want to have knowledge of the conferences
 that have minimum and maximum attendees. Therefore, I have implemented in
 `conference.py` two methods that query all conferences having min attendees <=5
-(getMinAttndsConfs) and max attendees >= 100 (getMaxAttndsConfs). Examples of
-conferences with minimum attendees are private board meetings for CEOs and
+(`getMinAttndsConfs`) and max attendees >= 100 (`getMaxAttndsConfs`). Examples
+of conferences with minimum attendees are private board meetings for CEOs and
 examples of conferences with maximum attendees are popular sporting events.
+
+*Simply click `Execute` to obtain desired results for both methods.
 
 ###**Solve the following query related problem**###
 
@@ -157,8 +163,8 @@ speaker gets featured and a new Memcache entry is made or overwrites the
 previous entry, giving a list of all featured speakers and their sessions for
 the conference. Note that `getFeaturedSpeaker` has a `websafeConferenceKey`
 field. Once the `websafeConferenceKey` is provided (see first half of Step 3 in
-`Test Instructions` if unsure) then the method will return the featured
-speakers and their sessions as the Memcache entry.
+`Test Instructions` if unsure) and you have clicked `Execute`, then the method
+will return the featured speakers and their sessions as the Memcache entry.
 
 [1]: https://developers.google.com/appengine
 [2]: http://python.org
