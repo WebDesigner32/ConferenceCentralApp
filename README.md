@@ -108,8 +108,17 @@ the Session and Speaker kinds: `getConferenceSessions`,
 and `_getKeyForSpeaker`.
 
 *When testing the available methods via the Google APIs Explorer, provide
-information for all fields except for the `fields` fields and then click
-`Execute` for each method.
+complete and properly inputted data for all fields (see exceptions for complete
+data just below paragraph) and then click `Execute` for each method. When data
+is improperly inputted, check the result from the executed method to see
+examples of proper data for input. This tip can be applied for many various
+methods being tested.
+
+**Exceptions**
+
+1. Leave the `fields` fields blank.
+2. `Request body` for `createSession` only requires `name`.
+3. `typeOfSession` may be left blank in `getConferenceSessionsByType`.
 
 ##**Task 2: Add Sessions to User Wishlist**##
 
