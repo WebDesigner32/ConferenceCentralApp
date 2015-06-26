@@ -29,7 +29,7 @@ emphasized and implementation of endpoint methods and classes are heavily used.
    `settings.py`.
 3. Set the Web client ID as the value for CLIENT_ID in `static/js/app.js`.
 5. In GoogleAppEngineLauncher, right click and then click `New`. Leave the
-   `Application ID` blank and then specify the Application Directory. Next, you
+   `Application ID` blank and then specify the `Application Directory`. Next, you
    can set `Port`. Once completed, continue by clicking `Create`.
 6. In GoogleAppEngineLauncher, click `Run`.
 6. Check if the app is running by visiting [localhost:8080][6]. If you are
