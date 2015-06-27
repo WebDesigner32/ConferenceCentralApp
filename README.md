@@ -164,12 +164,14 @@ Task 4: Add a Task
 
 Once a session is made, the default taskqueue gets a new task added to it. All
 sessions of a conference are reviewed for any speaker that has greater than one
-session in that conference once `ReviewSpeakersForSessions` in `main.py` is
+session in the conference once `ReviewSpeakersForSessions` in `main.py` is
 executed. In the event a speaker does have greater than one session, then the
 speaker gets featured and a new Memcache entry is made or overwrites the
 previous entry, giving a list of all featured speakers and their sessions for
-the conference. Note that `getFeaturedSpeaker` has a `websafeConferenceKey`
-field. Once the `websafeConferenceKey` is provided (see first half of Step 3 in
+the conference.
+
+Note that `getFeaturedSpeaker` has a `websafeConferenceKey` field. Once the
+`websafeConferenceKey` is provided (see first half of Step 3 in
 `Test Instructions` if unsure) and you have clicked `Execute`, then the method
 will return the featured speakers and their sessions as the Memcache entry.
 
