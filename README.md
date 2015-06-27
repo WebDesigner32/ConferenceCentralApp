@@ -26,7 +26,8 @@ emphasized and implementation of endpoint methods and classes are heavily used.
    `application` in `app.yaml`.
 2. Set the `Client IDs` you registered in the [Developer Console][5] as the
    values for WEB_CLIENT_ID, ANDROID_CLIENT_ID, and IOS_CLIENT_ID in
-   `settings.py`.
+   `settings.py`, and make sure to set `Credentials` and `Consent Screen` as
+   needed in the Google Developers Console.
 3. Set the Web client ID as the value for CLIENT_ID in `static/js/app.js`.
 5. In GoogleAppEngineLauncher, right click and then click `New`. Leave the
    `Application ID` blank and then specify the `Application Directory`. Next, you
