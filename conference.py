@@ -212,7 +212,7 @@ class ConferenceApi(remote.Service):
                                                  "%H:%M").time()
         # convert speakers from strings as list to Speaker entity keys as list
         if data['speakers']:
-            # check that each provided speaker for a session exists in the
+            # Check that each provided speaker for a session exists in the
             # database. If the speaker exists in the database, then retrieve
             # the key value. Otherwise, make a new speaker having the provided
             # name as the key.

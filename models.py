@@ -101,8 +101,9 @@ class SpeakerForm(messages.Message):
 class Session(ndb.Model):
     """Session -- Session object"""
     name = ndb.StringProperty(required=True)
+    # multiple highlights can exist
     highlights = ndb.StringProperty(repeated=True)
-    # numerous speaker entities can exist
+    # multiple speaker entities can exist
     speakers = ndb.KeyProperty(kind=Speaker, repeated=True)
     duration = ndb.TimeProperty()
     # the msgprop module is used
