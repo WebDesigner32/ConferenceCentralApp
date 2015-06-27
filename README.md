@@ -118,7 +118,6 @@ methods being tested.
 
 1. Leave the `fields` fields blank.
 2. `Request body` for `createSession` only requires `name`.
-3. `typeOfSession` may be left blank in `getConferenceSessionsByType`.
 
 ##**Task 2: Add Sessions to User Wishlist**##
 
