@@ -87,7 +87,7 @@ class ReviewSpeakersForSessions(webapp2.RequestHandler):
             memcache.set(MEMCACHE_CONFERENCE_KEY, featured)
         else:
             # If there are no featured speakers at conference,
-            # delete the memcache announcements entry
+            # delete the memcache announcements entry.
             featured = ""
             memcache.delete(MEMCACHE_CONFERENCE_KEY)
 
