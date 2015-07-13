@@ -79,15 +79,15 @@ emphasized and implementation of endpoint methods and classes are heavily used.
 The kind Session is defined in models.py like so:
 
 ```
-**class Session(ndb.Model):**
-    **name = ndb.StringProperty(required=True)**
-    **highlights = ndb.StringProperty(repeated=True)**
-    **speakers = ndb.KeyProperty(kind=Speaker, repeated=True)**
-    **duration = ndb.TimeProperty()**
-    **typeOfSession = ndb.StringProperty()**
-    **date = ndb.DateProperty()**
-    **startTime = ndb.TimeProperty()**
-    **location = ndb.StringProperty()**
+class Session(ndb.Model):
+    name = ndb.StringProperty(required=True)
+    highlights = ndb.StringProperty(repeated=True)
+    speakers = ndb.KeyProperty(kind=Speaker, repeated=True)
+    duration = ndb.TimeProperty()
+    typeOfSession = ndb.StringProperty()
+    date = ndb.DateProperty()
+    startTime = ndb.TimeProperty()
+    location = ndb.StringProperty()
 ```
 
 As you can see, there can be multiple highlights and speakers in a session.
