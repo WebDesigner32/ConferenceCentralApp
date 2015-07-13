@@ -1,5 +1,7 @@
 ##**Conference Central API**##
 
+![conferencecentralapp](https://cloud.githubusercontent.com/assets/10377920/8662639/be4dbb0c-2976-11e5-961c-4fda91ff7661.png)
+
 ##**Project Goals**##
 
 This project aims to provide session and speaker functionality with user
