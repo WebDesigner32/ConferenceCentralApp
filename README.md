@@ -78,6 +78,7 @@ emphasized and implementation of endpoint methods and classes are heavily used.
 
 The kind Session is defined in models.py like so:
 
+```
 **class Session(ndb.Model):**
     **name = ndb.StringProperty(required=True)**
     **highlights = ndb.StringProperty(repeated=True)**
@@ -87,6 +88,7 @@ The kind Session is defined in models.py like so:
     **date = ndb.DateProperty()**
     **startTime = ndb.TimeProperty()**
     **location = ndb.StringProperty()**
+```
 
 As you can see, there can be multiple highlights and speakers in a session.
 The session is created as a child of an existing conference.
